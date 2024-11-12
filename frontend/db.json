@@ -1,0 +1,20 @@
+{
+    "topics": [
+      {
+        "id": "1",
+        "name": "Renewable Energy",
+        "description": "Energy sourced from renewable resources like wind, solar, etc."
+      },
+      {
+        "id": "2",
+        "name": "Sustainable Agriculture",
+        "description": "Farming practices that maintain soil health and biodiversity."
+      },
+      {
+        "id": "3",
+        "name": "Water Conservation",
+        "description": "Strategies to reduce water usage across industries."
+      }
+    ]
+  }
+  
