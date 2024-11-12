@@ -1,28 +1,22 @@
 version: '3.8'
 
 services:
-  backend:
-    build: ./backend                    # Path to backend Dockerfile
+  app:
+    build: .
     ports:
-      - "8000:8000"                     # Maps host port 8000 to container port 8000
+      - "8080:8080"
     environment:
-      - DATABASE_URI=mongodb://mongo:27017/sustainability
+      - USE_MOCK_SERVICE=false
+      - MONGO_URI=mongodb://mongo:27017
     depends_on:
-      - mongo                           # Ensures MongoDB starts before the backend
-
-  frontend:
-    build: ./frontend                   # Path to frontend Dockerfile
-    ports:
-      - "3000:80"                       # Maps host port 3000 to container port 80 (Nginx)
-    environment:
-      - REACT_APP_BACKEND_URL=http://localhost:8000  # Environment variable for backend URL
+      - mongo
 
   mongo:
-    image: mongo:latest                 # MongoDB official image
+    image: mongo
     ports:
-      - "27017:27017"                   # Maps MongoDB port for access if needed
+      - "27017:27017"
     volumes:
-      - ./data/db:/data/db              # Stores data persistently on host
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=root # MongoDB username (for initialization)
-      - MONGO_INITDB_ROOT_PASSWORD=example # MongoDB password (for initialization)
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
