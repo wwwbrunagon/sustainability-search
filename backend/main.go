@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"os"
 	"sustainability-platform/handlers"
+	"sustainability-platform/middleware" // Import the middleware package
 	"sustainability-platform/services"
 
 	"go.mongodb.org/mongo-driver/mongo"
@@ -32,8 +33,14 @@ func main() {
 	// Initialize handler
 	topicHandler := handlers.TopicHandler{Service: topicService}
 
-	// Set up routes
-	http.HandleFunc("/api/topics", topicHandler.GetTopics)
+	// Set up routes with CORS middleware
+	mux := http.NewServeMux()
+	mux.HandleFunc("/api/topics", topicHandler.GetTopics)
+
+	// Wrap the router with CORS middleware
+	corsHandler := middleware.EnableCORS(mux)
+
+	// Start the server with CORS enabled
 	log.Println("Server running on :8080")
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	log.Fatal(http.ListenAndServe(":8080", corsHandler))
 }

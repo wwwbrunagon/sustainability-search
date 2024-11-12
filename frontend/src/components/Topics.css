@@ -1,0 +1,53 @@
+
+div {
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+
+.error-message {
+  color: red;
+  font-weight: bold;
+}
+
+.topic-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+/* Individual topic card styling */
+.topic-card {
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+  background-color: #f9f9f9;
+}
+
+.topic-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.topic-card h2 {
+  font-size: 20px;
+  color: #3498db;
+  margin: 0 0 10px;
+}
+
+.topic-card p {
+  font-size: 16px;
+  line-height: 1.4;
+  color: #555;
+  margin: 0;
+}
