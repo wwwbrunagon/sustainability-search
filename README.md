@@ -1,6 +1,6 @@
-# Sustainability Platform
+## Sustainability Platform
 
-This is a full-stack project focused on providing comprehensive information about sustainability within various industry sectors
+This project focuses on studying Golang and sharing clear information about sustainability in different industries. It is a full-stack initiative that aims to make these topics easy to understand.
 
 ## Project Structure
 
