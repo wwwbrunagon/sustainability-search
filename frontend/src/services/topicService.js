@@ -4,7 +4,7 @@ export async function fetchTopics() {
   try {
     const response = await fetch(`${API_BASE_URL}/topics`); 
     if (!response.ok) {
-      throw new Error("Failed to fetch topics");
+      throw new Error("Failed to fetch topics (frontend)");
     }
     const data = await response.json();
     console.log("Fetched topics data:", data);
